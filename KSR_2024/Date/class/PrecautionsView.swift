@@ -32,7 +32,7 @@ class PrecautionsView: UIButton {
         labelBackView.isUserInteractionEnabled = false
         contentView.addSubview(labelBackView)
         
-        let iConImage = #imageLiteral(resourceName: "btnBNoti")
+        let iConImage = #imageLiteral(resourceName: "go4")
         let iConView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         iConView.image = iConImage
         iConView.isUserInteractionEnabled = false

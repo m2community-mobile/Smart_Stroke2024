@@ -45,12 +45,12 @@ func enterpriseAppVersionCheck(complete : @escaping (Bool) -> Void  ){
 }
 
 
-func currentAppVersion() -> Int  {
-    
-    let infoDic = Bundle.main.infoDictionary
-    var currentVersion = infoDic!["CFBundleShortVersionString"] as! String
-    currentVersion = currentVersion.replacingOccurrences(of: ".", with: "")
-    if currentVersion.count == 2 { currentVersion = "\(currentVersion)0" }
-    return Int(currentVersion)!
-    
-}
+//func currentAppVersion() -> Int  {
+//    
+//    let infoDic = Bundle.main.infoDictionary
+//    var currentVersion = infoDic!["CFBundleShortVersionString"] as! String
+//    currentVersion = currentVersion.replacingOccurrences(of: ".", with: "")
+//    if currentVersion.count == 2 { currentVersion = "\(currentVersion)0" }
+//    return Int(currentVersion)!
+//    
+//}

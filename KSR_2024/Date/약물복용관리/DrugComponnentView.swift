@@ -37,7 +37,7 @@ class DrugComponnentView : UIButton {
         
         checkButtonImageView = UIImageView(frame: checkButton.bounds)
         checkButtonImageView.isUserInteractionEnabled = false
-        checkButtonImageView.image = #imageLiteral(resourceName: "a")
+        checkButtonImageView.image = #imageLiteral(resourceName: "sun2")
         checkButton.addSubview(checkButtonImageView)
         
         contentLabel = UILabel(frame: CGRect(x: checkButton.frame.maxX + 13, y: 0, width: self.frame.size.width - checkButton.frame.maxX, height: self.frame.size.height))

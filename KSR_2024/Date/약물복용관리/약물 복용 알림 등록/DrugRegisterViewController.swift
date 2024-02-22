@@ -370,6 +370,7 @@ class DrugRegisterViewController: UIViewController
     }
     
     func saveButtonPressed(button: UIButton) {
+        print("tap")
         
         if self.timeSettingView.beforOfAfter == nil {
             toastShow(message: "식전 혹은 식후를 선택하세요.")
@@ -461,6 +462,8 @@ class DrugRegisterViewController: UIViewController
     
     func drugButtonPressed(drugSelectView: DrugSelectView, button: TimeOffSetButton) {
 //?///?/
+        
+        print("왜 안돼")
         let index = button.tag
 
         if let drugs = self.drugDataArray[index][drugDataKey.drugs] as? [[String:Any]],
@@ -884,7 +887,7 @@ class TimeOffSetButton: UIButton {
     func addbuttonImageView(){
         self.buttonImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 14, height: 14))
         self.buttonImageView?.center.y = self.frame.size.height / 2
-        self.buttonImageView?.image = #imageLiteral(resourceName: "a")
+        self.buttonImageView?.image = #imageLiteral(resourceName: "calendarX")
         self.titleBackView.addSubview(self.buttonImageView!)
     }
     

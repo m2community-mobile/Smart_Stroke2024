@@ -47,7 +47,7 @@ class CalendarCell: JTAppleCell {
         
         self.calendarXImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.dateLabel.frame.size.height, height: self.dateLabel.frame.size.height))
         self.calendarXImageView.center = CGPoint(x: self.dateLabel.frame.size.width / 2, y: self.dateLabel.frame.size.height / 2)
-        self.calendarXImageView.image = #imageLiteral(resourceName: "a")
+        self.calendarXImageView.image = #imageLiteral(resourceName: "calendarX")
         self.calendarXImageView.isHidden = true
         self.dateLabel.addSubview(self.calendarXImageView)
         
@@ -56,7 +56,7 @@ class CalendarCell: JTAppleCell {
 //        var imageViewHeight : CGFloat = 0
 //        var imageViewCenterY : CGFloat = 0
         for i in 0..<3{
-            let sunImage = UIImage(named: "a")!
+            let sunImage = UIImage(named: "sun\(i+1)")!
             
             let sunImageView = UIImageView(image: sunImage)
             let sunImageViewSizeWidth = subBackView.frame.size.width / 3
@@ -78,7 +78,7 @@ class CalendarCell: JTAppleCell {
         }
         
         self.firstCheckView = UIImageView(frame: CGRect(x: 0, y: 0, width: 10.5, height: 13.5))
-        self.firstCheckView.image = #imageLiteral(resourceName: "a")
+        self.firstCheckView.image = #imageLiteral(resourceName: "vectorSmartObject")
         self.firstCheckView.center = CGPoint(x: subBackView.frame.size.width / 4, y: dateLabel.center.y)
         subBackView.addSubview(self.firstCheckView)
         

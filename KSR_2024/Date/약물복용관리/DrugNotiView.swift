@@ -76,11 +76,19 @@ func showDrugNotiView(date kDate: Date){
     }
     
     DispatchQueue.main.async {
+        print("?????")
+        sceneDel!.drugNotiView?.removeFromSuperview()
+        print("?????1")
+        sceneDel!.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
+        print("?????2")
+        sceneDel!.drugNotiView!.date = date
+        print("?????3")
+        sceneDel!.window?.addSubview(sceneDel!.drugNotiView!)
+        print("?????4")
         
-        appDel.drugNotiView?.removeFromSuperview()
-        appDel.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
-        appDel.drugNotiView!.date = date
-        appDel.window?.addSubview(appDel.drugNotiView!)
+        
+        
+        
 
         
     }
@@ -140,10 +148,10 @@ class DrugNotiView: UIView, DrugTimeViewDelegate {
         
         let backCloseButtonView = UIButton(frame: self.bounds)
         backCloseButtonView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        backCloseButtonView.addTarget(event: .touchUpInside) { (button) in
-            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
-            self.removeFromSuperview()
-        }
+//        backCloseButtonView.addTarget(event: .touchUpInside) { (button) in
+//            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
+//            self.removeFromSuperview()
+//        }
         self.addSubview(backCloseButtonView)
         
         let contentBackView = UIButton(frame: CGRect(x: 0, y: STATUS_BAR_HEIGHT + 30, width: SCREEN.WIDTH * 0.85, height: SCREEN.HEIGHT - (STATUS_BAR_HEIGHT + 30 + 19 + SAFE_AREA)))
@@ -156,7 +164,7 @@ class DrugNotiView: UIView, DrugTimeViewDelegate {
         
         let closeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 16.5, height: 17))
         closeImageView.center.x = contentBackView.frame.size.width / 2
-        closeImageView.image = #imageLiteral(resourceName: "a")
+        closeImageView.image = #imageLiteral(resourceName: "icDate")
         closeImageView.isUserInteractionEnabled = false
         contentBackView.addSubview(closeImageView)
 
@@ -165,7 +173,7 @@ class DrugNotiView: UIView, DrugTimeViewDelegate {
         contentView.layer.cornerRadius = 2.5
         contentBackView.addSubview(contentView)
 
-        let bgImage = #imageLiteral(resourceName: "a")
+        let bgImage = #imageLiteral(resourceName: "menu2")
         let bgImageView = UIImageView(frame: contentView.bounds)
         bgImageView.image = bgImage
         bgImageView.frame.size.height = 156
@@ -491,12 +499,12 @@ class DrugTimeView: UIView {
         checkButton.layer.borderColor = UIColor.white.cgColor
         checkButton.layer.borderWidth = 0.5
         checkButton.backgroundColor = UIColor.clear
-        checkButton.addTarget(event: .touchUpInside) { (button) in
-            self.delegate?.checkButtonPressed?(drugTimeView: self)
-        }
+//        checkButton.addTarget(event: .touchUpInside) { (button) in
+//            self.delegate?.checkButtonPressed?(drugTimeView: self)
+//        }
         self.addSubview(checkButton)
 
-        let checkImage = #imageLiteral(resourceName: "a")
+        let checkImage = #imageLiteral(resourceName: "menu5")
         let checkImageView = UIImageView(image: checkImage)
         checkImageView.frame = CGRect(x: 10, y: 0, width: 14, height: 14)
         checkImageView.center.y = checkButton.frame.size.height / 2

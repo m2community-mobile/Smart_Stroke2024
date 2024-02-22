@@ -14,11 +14,13 @@ class DrugManageView: UIScrollView {
     var topView : RegisterdDrugListTopView!
     var calendarView : CalendarView!
     
+    var rightBTN : UIButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.topView = RegisterdDrugListTopView()
-        self.addSubview(self.topView)
+//        self.addSubview(self.topView)
 
         appDel.topView1 = self.topView
         
@@ -28,6 +30,8 @@ class DrugManageView: UIScrollView {
         
         self.contentSize.width = SCREEN.WIDTH
         self.contentSize.height = max(self.frame.size.height, self.calendarView.frame.maxY)
+        
+        
         
     }
     
@@ -170,6 +174,7 @@ class DrugManageView: UIScrollView {
             
             self.currentYearAndMonth = Calendar.current.date(byAdding: DateComponents(month: -1), to: self.currentYearAndMonth)!
             let dateString = dateToStringWithFormat(formatString: "yyyy.MM", date: self.currentYearAndMonth)
+            
             self.yearAndMonthView.titleLabelTextUpdate(text: dateString)
             
             self.calendarViewWithManage.calendarView.scrollToDate(self.currentYearAndMonth)
@@ -217,7 +222,7 @@ class DrugManageView: UIScrollView {
             var superCalendarView : CalendarView?
             
             convenience init() {
-                self.init(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH, height: 50))
+                self.init(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH, height: 100))
             }
         
             var leftButton : UIButton!
@@ -240,7 +245,7 @@ class DrugManageView: UIScrollView {
                 
                 let leftButtonImageView = UIImageView(frame: self.leftButton.bounds)
                 leftButtonImageView.isUserInteractionEnabled = false
-//                leftButtonImageView.image = #imageLiteral(resourceName: "icBefore")
+                leftButtonImageView.image = #imageLiteral(resourceName: "icBefore")
                 self.leftButton.addSubview(leftButtonImageView)
                 
                 let leftButtonCenterX = self.leftButton.center.x
@@ -255,12 +260,15 @@ class DrugManageView: UIScrollView {
                 
                 let rightButtonImageView = UIImageView(frame: self.rightButton.bounds)
                 rightButtonImageView.isUserInteractionEnabled = false
-//                rightButtonImageView.image = #imageLiteral(resourceName: "icNext")
+                rightButtonImageView.image = #imageLiteral(resourceName: "icNext")
+                
+                
+//                rightButtonImageView.image =  UIImage(named: "goForward")
                 self.rightButton.addSubview(rightButtonImageView)
                 
                 let rightButtonCenterX = self.rightButton.center.x
                 self.rightButton.frame.size.width *= 2
-                self.rightButton.center.x = rightButtonCenterX
+//                self.rightButton.center.x = rightButtonCenterX
                 rightButtonImageView.center.x = self.rightButton.frame.size.width / 2
                 
                 let todayButton = UIButton(frame: CGRect(x: SCREEN.WIDTH - (SCREEN.WIDTH * 14/320) - 50, y: 0, width: 50, height: 21))
@@ -272,7 +280,7 @@ class DrugManageView: UIScrollView {
                 todayButton.setTitle("Today", for: .normal)
                 todayButton.setTitleColor(UIColor.white, for: .normal)
                 todayButton.addTarget(self, action: #selector(todayButtonPressed(button:)), for: .touchUpInside)
-                self.addSubview(todayButton)
+//                self.addSubview(todayButton)
                 
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.alignment = .center
@@ -307,7 +315,7 @@ class DrugManageView: UIScrollView {
             func titleLabelTextUpdate( text : String){
                 
                 let attribute = [
-                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12),
+                    NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22),
                     NSAttributedString.Key.foregroundColor : UIColor.white,
                     NSAttributedString.Key.kern : -0.8, //자간?
                     NSAttributedString.Key.paragraphStyle : centerParagraphStyle

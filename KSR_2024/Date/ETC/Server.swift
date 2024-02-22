@@ -7,10 +7,40 @@
 //
 
 import UIKit
+import Alamofire
 
 class Server: NSObject,URLSessionDelegate {
     
-    static let BASE_URL = "http://www.strokedb.or.kr/"
+    static func postData(urlString:String, method : HTTPMethod = .post, otherInfo : [String:String]? = nil, completion : @escaping ( _ data  : Data? ) -> Void) -> DataRequest? {
+        
+        guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else {
+            completion(nil)
+            return nil
+        }
+        
+        
+        
+        let request = AF.request(url, method: method, parameters: otherInfo).responseData { (dataResponse:DataResponse) in
+            if let error = dataResponse.error {
+                print("error \(error.localizedDescription)")
+                completion(nil)
+            }else{
+                if dataResponse.response?.statusCode == 200 {
+                    completion(dataResponse.data)
+                }else{
+                    print("httpStatusCode \(String(describing: dataResponse.response?.statusCode))")
+                    completion(nil)
+                }
+            }
+        }
+        
+        return request
+    }
+    
+    
+//    static let BASE_URL = "http://www.strokedb.or.kr/"
+    
+    static let BASE_URL = "http://strokedb.or.kr/"
     
     enum InfoType : String {
         
@@ -18,26 +48,26 @@ class Server: NSObject,URLSessionDelegate {
         case USER_INFO            = "app/get_user.asp"
         
         case BLOOD_USER           = "app/blood_user.asp"
-        case BLOOD_ADD            = "app/set_blood.asp"
-        case BLOOD_GRAPH          = "app/get_blood.asp"
-        case BLOOD_DATA_ALL       = "app/get_blood2.asp"
+        case BLOOD_ADD            = "app_new/set_blood.asp"
+        case BLOOD_GRAPH          = "app_new/get_blood.asp"
+        case BLOOD_DATA_ALL       = "app_new/get_blood2.asp"
         case BLOOD_DEL            = "app/del_blood.asp"
         
         case SUGAR_USER           = "app/sugar_user.asp"
         case SUGAR_GRAPH          = "app/get_sugar.asp"
-        case SUGAR_ADD            = "app/set_sugar.asp"
-        case SUGAR_DATA_ALL       = "app/get_sugar2.asp"
+        case SUGAR_ADD            = "app_new/set_sugar.asp"
+        case SUGAR_DATA_ALL       = "app_new/get_sugar2.asp"
         case SUGAR_DEL            = "app/del_sugar.asp"
         
         case BMI_USER             = "app/bmi_user.asp"
-        case BMI_ADD              = "app/set_bmi.asp"
-        case BMI_DATA_ALL         = "app/get_bmi2.asp"
+        case BMI_ADD              = "app_new/set_bmi.asp"
+        case BMI_DATA_ALL         = "app_new/get_bmi2.asp"
         case BMI_GRAPH            = "app/get_bmi.asp"
         case BMI_DEL              = "app/del_bmi.asp"
         
         case CHOLESTEROL_USER     = "app/cholesterol_user.asp"
-        case CHOLESTEROL_ADD      = "app/set_cholesterol.asp"
-        case CHOLESTEROL_DATA_ALL = "app/get_cholesterol2.asp"
+        case CHOLESTEROL_ADD      = "app_new/set_cholesterol.asp"
+        case CHOLESTEROL_DATA_ALL = "app_new/get_cholesterol2.asp"
         case CHOLESTEROL_GRAPH    = "app/get_cholesterol.asp"
         case CHOLESTEROL_DEL      = "app/del_cholesterol.asp"
         
@@ -55,7 +85,7 @@ class Server: NSObject,URLSessionDelegate {
     
     
     static func getData(type : InfoType, otherInfo : [String:String]?, completion : @escaping ( _ data  : Data? ) -> Void)  {
-        
+        print("here!")
         var otherString = ""
         if let otherInfoDic = otherInfo {
             var otherStrings = [String]()
@@ -68,7 +98,7 @@ class Server: NSObject,URLSessionDelegate {
         }
         // 보내는 곳
         if let urlString = "\(BASE_URL)\(type.rawValue)\(otherString)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            print("urlString:\n\(urlString)")
+            print("here urlString:\n\(urlString)")
             
             let url = URL(string: urlString)
             if let url = url {
@@ -77,16 +107,20 @@ class Server: NSObject,URLSessionDelegate {
                 let dataTask = urlSession.dataTask(with: url, completionHandler: { (data : Data?, urlResponse : URLResponse?, error : Error?) in
                     if let error = error {
                         print(error.localizedDescription)
+                        print("통신별로")
                         toastShow(message: "통신이 원활하지 않습니다.")
                         completion(nil)
                         
                     }else{
+                        print("여기타")
                         if let httpResponse = urlResponse as? HTTPURLResponse {
-                            
+                            print("여기타1")
                             if httpResponse.statusCode == 200 {
-                                
+                                print("여기타2")
                                 DispatchQueue.main.async {
+                                    print("여기타3")
                                     completion(data)
+                                    print("여기타4")
                                     
                                 }
                                 

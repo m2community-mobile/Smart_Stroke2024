@@ -62,7 +62,7 @@ class CancelAndSaveButtonView: UIView{
             self.cancelButton.addTarget(self, action: #selector(cancelButtonPressed(button:)), for: .touchUpInside)
             self.addSubview(self.cancelButton)
             
-            let leftImage = #imageLiteral(resourceName: "a")
+            let leftImage = #imageLiteral(resourceName: "calendarX")
             let leftImageView = UIImageView(image: leftImage)
             leftImageView.frame = CGRect(x: 26.5, y: 0, width: 10.5, height: 18)
             leftImageView.center.y = self.cancelButton.frame.size.height / 2
@@ -76,7 +76,7 @@ class CancelAndSaveButtonView: UIView{
             self.saveButton.addTarget(self, action: #selector(saveButtonPressed(button:)), for: .touchUpInside)
             self.addSubview(self.saveButton)
             
-            let rightImage = #imageLiteral(resourceName: "a")
+            let rightImage = #imageLiteral(resourceName: "vectorSmartObject")
             let rightImageView = UIImageView(image: rightImage)
             rightImageView.frame = CGRect(x: saveButton.frame.size.width - 26.5 - 10.5, y: 0, width: 10.5, height: 18)
             rightImageView.center.y = self.cancelButton.frame.size.height / 2

@@ -42,7 +42,7 @@ class CalendarViewWithManage: UIView
         super.init(frame: frame)
     
         self.calendarView = JTAppleCalendarView(frame: self.bounds)
-        self.calendarView.backgroundColor = UIColor.white
+//        self.calendarView.backgroundColor = UIColor.clear
         self.calendarView.calendarDelegate = self
         self.calendarView.calendarDataSource = self
         self.calendarView.scrollingMode = .stopAtEachCalendarFrame
@@ -78,7 +78,7 @@ class CalendarViewWithManage: UIView
         
         
         for i in 0..<3{
-            cell.sunImageViews[i].image = UIImage(named: "a")!
+            cell.sunImageViews[i].image = UIImage(named: "sun\(i+1)f")!
         }
         
 //        for sunImageView in cell.sunImageViews {
@@ -284,6 +284,8 @@ class CalendarViewWithManage: UIView
     }
 
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        
+        print("day click")
         
         //셀을 선택했을때
 //        if let kCell = cell as? CalendarCell {
