@@ -77,10 +77,14 @@ func showDrugNotiView(date kDate: Date){
     
     DispatchQueue.main.async {
         
-        appDel.drugNotiView?.removeFromSuperview()
-        appDel.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
-        appDel.drugNotiView!.date = date
-        appDel.window?.addSubview(appDel.drugNotiView!)
+//        appDel.drugNotiView?.removeFromSuperview()
+//        appDel.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
+//        appDel.drugNotiView!.date = date
+//        appDel.window?.addSubview(appDel.drugNotiView!)
+        sceneDel!.drugNotiView?.removeFromSuperview()
+        sceneDel!.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
+        sceneDel!.drugNotiView!.date = date
+        sceneDel!.window?.addSubview(sceneDel!.drugNotiView!)
 
         
     }
@@ -141,14 +145,16 @@ class DrugNotiView: UIView, DrugTimeViewDelegate {
         let backCloseButtonView = UIButton(frame: self.bounds)
         backCloseButtonView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         backCloseButtonView.addTarget(event: .touchUpInside) { (button) in
-            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
+//            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
+            sceneDel!.drugManagementVC?.drugManageView.calendarView.dataUpdate()
             self.removeFromSuperview()
         }
         self.addSubview(backCloseButtonView)
         
         let contentBackView = UIButton(frame: CGRect(x: 0, y: STATUS_BAR_HEIGHT + 30, width: SCREEN.WIDTH * 0.85, height: SCREEN.HEIGHT - (STATUS_BAR_HEIGHT + 30 + 19 + SAFE_AREA)))
         contentBackView.addTarget(event: .touchUpInside) { (button) in
-            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
+//            appDel.drugManagementVC?.drugManageView.calendarView.dataUpdate()
+            sceneDel!.drugManagementVC?.drugManageView.calendarView.dataUpdate()
             self.removeFromSuperview()
         }
         contentBackView.center.x = SCREEN.WIDTH / 2

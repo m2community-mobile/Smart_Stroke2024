@@ -75,10 +75,10 @@ func showDrugNotiView(date kDate: Date){
     }
     
     DispatchQueue.main.async {
-        appDel.drugNotiView?.removeFromSuperview()
-        appDel.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
-        appDel.drugNotiView!.date = date
-        appDel.window?.addSubview(appDel.drugNotiView!)
+        sceneDel!.drugNotiView?.removeFromSuperview()
+        sceneDel!.drugNotiView = DrugNotiView(drugNotiInfos: dayComponentOfDrugs)
+        sceneDel!.drugNotiView!.date = date
+        sceneDel!.window?.addSubview(sceneDel!.drugNotiView!)
     }
 }
 

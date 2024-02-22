@@ -115,11 +115,11 @@ class BloodSugarListView: UIView {
             
             //goalAndRateView
             let goalAndRateView = UIView(frame: CGRect(x: 0, y: valueInfoView.frame.maxY + 50, width: SCREEN.WIDTH, height: 87.5))
-            self.addSubview(goalAndRateView)
+//            self.addSubview(goalAndRateView)
             
             goalView = InnerViewWith3SubTitle(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH * 0.53, height: goalAndRateView.frame.size.height))
             goalView.backgroundColor = UIColor(red: 0.28, green: 0.67, blue: 0.94, alpha: 1)
-            goalAndRateView.addSubview(goalView)
+//            goalAndRateView.addSubview(goalView)
             
             //goal
             goalView.notiLabelUpdate(text: "나의 혈당 목표 수치는?", image: #imageLiteral(resourceName: "profile"))
@@ -216,10 +216,11 @@ class BloodSugarListView: UIView {
             
             graphView.setXAxisStrings(xAxisStrings: xValueStrings)
             
-            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
-                toastShow(message: "reg_num is nil error")
-                return
-            }
+//            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
+//                toastShow(message: "reg_num is nil error")
+//                return
+//            }
+            let regNumString = "SB-12500-1"
             
             let today = Date()
             let year = dateToStringWithFormat(formatString: "yyyy", date: today)
@@ -306,11 +307,11 @@ class BloodSugarListView: UIView {
             
             //goalAndRateView
             let goalAndRateView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH, height: 87.5))
-            self.addSubview(goalAndRateView)
+//            self.addSubview(goalAndRateView)
             
             goalView = InnerViewWith3SubTitle(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH * 0.53, height: goalAndRateView.frame.size.height))
             goalView.backgroundColor = UIColor(red: 0.28, green: 0.67, blue: 0.94, alpha: 1)
-            goalAndRateView.addSubview(goalView)
+//            goalAndRateView.addSubview(goalView)
             
             //goal
             goalView.notiLabelUpdate(text: "나의 혈당 목표 수치는?", image: #imageLiteral(resourceName: "profile"))
@@ -374,12 +375,14 @@ class BloodSugarListView: UIView {
         }
         
         func dataUpdate() {
-            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
-                toastShow(message: "reg_num is nil error")
-                return
-            }
+//            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
+//                toastShow(message: "reg_num is nil error")
+//                return
+//            }
+            let regNumString = "SB-12500-1"
             
-            Server.getData(type: Server.InfoType.SUGAR_DATA_ALL, otherInfo: ["reg_num":regNumString]) { (kData : Data?) in
+            let sid = "\(UserDefaults.standard.object(forKey: "sid") ?? 0)"
+            Server.getData(type: Server.InfoType.SUGAR_DATA_ALL, otherInfo: ["user_sid":sid]) { (kData : Data?) in
                 if let data = kData {
                     do {
                         if let jsonArray = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [[String:String]] {
@@ -417,7 +420,7 @@ class BloodSugarListView: UIView {
                 cell.cellComponentViews[0].valueLabel.text = "식후"
             }
             
-            let val = dataDic["val"] ?? ""
+            let val = dataDic["value"] ?? ""
             cell.cellComponentViews[1].valueLabel.text = "\(val) mg / dL"
             
             let hba1c = dataDic["hba1c"] ?? ""
@@ -466,7 +469,7 @@ class BloodSugarListView: UIView {
         
         func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
             
-            let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "삭제") { (action ,indexPath) in
+            let delete = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "삭제") { (action ,indexPath) in
                 let dataDic = self.dataArray[indexPath.section]
                 print("dataDic : \(dataDic)")
                 if let sid = dataDic["sid"] {

@@ -48,7 +48,8 @@ class KnowViewController: UIViewController, TopBarDelegate {
     }
     
     func rightButtonPressed(button: UIButton) {
-        appDel.rightView?.open(isManage: false)
+//        appDel.rightView?.open(isManage: false)
+        sceneDel!.rightView?.open(isManage: false)
     }
     
     func leftButtonPressed(button: UIButton) {

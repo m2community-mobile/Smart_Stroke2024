@@ -1061,9 +1061,11 @@ class DrugSelectView: UIView, UITextFieldDelegate {
             
             lastY = drugButton.frame.maxY
             
-            drugButton.addTarget(event: UIControl.Event.touchUpInside) { (button) in
-                self.delegate?.drugButtonPressed?(drugSelectView: self, button: drugButton)
-            }
+//            drugButton.addTarget(event: UIControl.Event.touchUpInside) { (button) in
+//                self.delegate?.drugButtonPressed?(drugSelectView: self, button: drugButton)
+//            }
+            
+            drugButton.addTarget(self, action: #selector(self.delegate?.drugButtonPressed(drugSelectView:button:)), for: .touchUpInside)
         }
         
         textFieldBackView = UIView(frame: CGRect(x: 20, y: lastY + 11, width: SCREEN.WIDTH - 40, height: 40))
@@ -1099,12 +1101,14 @@ class DrugSelectView: UIView, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("textFieldDidBeginEditing")
         //핵심
-        let textFieldMaxY = appDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
+//        let textFieldMaxY = appDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
+        let textFieldMaxY = sceneDel!.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
         let keyBoardHeight : CGFloat = (IS_IPHONE_X ? 377 : 216) + 44
         let targetHeight = (SCREEN.HEIGHT - textFieldMaxY) - keyBoardHeight - 10
         if targetHeight < 0 {
             UIView.animate(withDuration: 0.3, animations: {
-                appDel.window?.frame.origin.y = targetHeight
+//                appDel.window?.frame.origin.y = targetHeight
+                sceneDel!.window?.frame.origin.y = targetHeight
             }) { (fi:Bool) in
                 
             }
@@ -1113,7 +1117,8 @@ class DrugSelectView: UIView, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
-            appDel.window?.frame.origin.y = 0
+//            appDel.window?.frame.origin.y = 0
+            sceneDel!.window?.frame.origin.y = 0
         }) { (fi:Bool) in
             
         }
@@ -1256,9 +1261,11 @@ class SubDrugView: UIView {
             maxY = subDrugButton.frame.origin.y
             buttonSizeHeight = subDrugButton.frame.size.height
             
-            subDrugButton.addTarget(event: UIControl.Event.touchUpInside) { (button) in
-                self.delegate?.subDrugViewSubDrugButtonPressed?(subDrugView: self, subDrugButton: subDrugButton)
-            }
+//            subDrugButton.addTarget(event: UIControl.Event.touchUpInside) { (button) in
+//                self.delegate?.subDrugViewSubDrugButtonPressed?(subDrugView: self, subDrugButton: subDrugButton)
+//            }
+            
+            subDrugButton.addTarget(self, action: #selector(self.delegate?.subDrugViewSubDrugButtonPressed(subDrugView:subDrugButton:)), for: .touchUpInside)
             
             self.addSubview(subDrugButton)
             

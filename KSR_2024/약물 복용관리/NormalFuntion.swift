@@ -43,7 +43,7 @@ let randomColor : UIColor = {
 }()
 
 
-func getAttributedString( stringsInfos : [(String,[NSAttributedStringKey:NSObject])]) -> NSAttributedString {
+func getAttributedString( stringsInfos : [(String,[NSAttributedString.Key:NSObject])]) -> NSAttributedString {
     
     var targetString = ""
     for i in 0..<stringsInfos.count {

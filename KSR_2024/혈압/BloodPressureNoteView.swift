@@ -16,6 +16,7 @@ class BloodPressureNoteView: UIScrollView
 
     var bloodPressureGoalAndRateView : BloodPressureGoalAndRateView!
     
+    
     var contractionInputView : DataInputView!
     var relaxtionInputView : DataInputView!
     var heartRateInputView : DataInputView!
@@ -36,7 +37,7 @@ class BloodPressureNoteView: UIScrollView
         
         let timeView = TimeView()
         self.today = Date()
-        timeView.frame.origin.y = bloodPressureGoalAndRateView.frame.maxY
+        timeView.frame.origin.y = 70
         timeView.timeLabel.text = dateToStringWithFormat(formatString: "yyyy.MM.dd a h:mm", date: self.today)
         self.addSubview(timeView)
         
@@ -75,16 +76,16 @@ class BloodPressureNoteView: UIScrollView
         let precautionsView = PrecautionsView()
         precautionsView.setContentLabelString(content: "자가혈압측정시 주의사항")
         precautionsView.frame.origin.y = cancelAndSaveBV.frame.maxY
-        precautionsView.addTarget(event: .touchUpInside) { (button) in
-            
-            let knowVC = KnowViewController()
-            
-            knowVC.titleString = "자가혈압측정시 주의사항"
-            knowVC.urlString = "http://ksrapp.m2comm.co.kr/html/popup.html"
-            
-            self.superCon?.navigationController?.pushViewController(knowVC, animated: true)
-            
-        }
+//        precautionsView.addTarget(event: .touchUpInside) { (button) in
+//            
+//            let knowVC = KnowViewController()
+//            
+//            knowVC.titleString = "자가혈압측정시 주의사항"
+//            knowVC.urlString = "http://ksrapp.m2comm.co.kr/html/popup.html"
+//            
+//            self.superCon?.navigationController?.pushViewController(knowVC, animated: true)
+//            
+//        }
         self.addSubview(precautionsView)
         
 //        let addButtonSize : CGFloat = SCREEN.WIDTH * (50/320)
@@ -131,20 +132,25 @@ class BloodPressureNoteView: UIScrollView
         let min = self.relaxtionInputView.valueTextField.text!
         let pulse = self.heartRateInputView.valueTextField.text!
         
-        guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
-            toastShow(message: "reg_num is nil error")
-            return
-        }
+//        guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
+//            toastShow(message: "reg_num is nil error")
+//            return
+//        }
+        let sid = "\(UserDefaults.standard.object(forKey: "sid") ?? 0)"
+        let regNumString = "SB-12500-1"
         
         let year = dateToStringWithFormat(formatString: "yyyy", date: self.today)
         let month = dateToStringWithFormat(formatString: "MM", date: self.today)
-        let week = dateToStringWithFormat(formatString: "w", date: self.today)
-        let dayweek = dateToStringWithFormat(formatString: "c", date: self.today)
+        let week = dateToStringWithFormat(formatString: "3", date: self.today)
+//        let week = "3"
+        let dayweek = dateToStringWithFormat(formatString: "3", date: self.today)
+//        let dayweek = "3"
         let day = dateToStringWithFormat(formatString: "dd", date: self.today)
         let dateTime = dateToStringWithFormat(formatString: "yyyy.MM.dd a h:mm", date: self.today)
         
         let sendDataDic = [
-            "reg_num":regNumString,
+            "user_sid":sid,
+//            "reg_num":regNumString,
             "max":max,
             "min":min,
             "pulse":pulse,
@@ -161,7 +167,9 @@ class BloodPressureNoteView: UIScrollView
                 if let dataString : String = String(data: data, encoding: String.Encoding.utf8) {
                     print("dataString:\(dataString)")
                     self.endEditing(true)
-                    self.superCon?.segView.itemButtonPressed(button: (self.superCon?.segView.itemButtons[2])!)
+                    print("go")
+//                    self.superCon?.segView.itemButtonPressed(button: (self.superCon?.segView.itemButtons[2])!)
+                    
                 }
             }
         }
@@ -189,7 +197,7 @@ class BloodPressureNoteView: UIScrollView
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         //핵심
-        let textFieldMaxY = appDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
+        let textFieldMaxY = sceneDel!.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
         let keyBoardHeight : CGFloat = (IS_IPHONE_X ? 377 : 216) + 44
         let targetHeight = (SCREEN.HEIGHT - textFieldMaxY) - keyBoardHeight - 10
         if targetHeight < 0 {

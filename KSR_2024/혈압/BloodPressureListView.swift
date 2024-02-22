@@ -13,6 +13,7 @@ class BloodPressureListView: UIView {
     var graphScrollView : GraphScrollView!
     var dataScrollView : DataView!
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -74,8 +75,9 @@ class BloodPressureListView: UIView {
             //그래프
             
             //10
-            let valueInfoView = UIView(frame: CGRect(x: 0, y: graphView.frame.maxY + 20, width: SCREEN.WIDTH, height: 10))
+            let valueInfoView = UIView(frame: CGRect(x: 0, y: graphView.frame.maxY + 30, width: SCREEN.WIDTH, height: 20))
             valueInfoView.backgroundColor = UIColor.white
+            
             self.addSubview(valueInfoView)
             
             let valueInfos : [(title : String, color : UIColor)] = [
@@ -95,12 +97,13 @@ class BloodPressureListView: UIView {
                 circleView.layer.borderWidth = 1
                 valueInfoView.addSubview(circleView)
                 
-                let infoLabel = UILabel(frame: CGRect(x: circleView.frame.maxX + 4.5, y: 0, width: 50, height: 10))
+                let infoLabel = UILabel(frame: CGRect(x: circleView.frame.maxX + 4.5, y: 0, width: 50, height: 20))
+            
                 infoLabel.textColor = contentColor
                 infoLabel.font = UIFont(name: Nanum_Barun_Gothic_OTF, size: 10)
                 infoLabel.text = valueInfos[i].title
-                var newSize = infoLabel.sizeThatFits(CGSize(width: SCREEN.WIDTH, height: 10))
-                newSize.height = 10
+                var newSize = infoLabel.sizeThatFits(CGSize(width: SCREEN.WIDTH, height: 20))
+                newSize.height = 20
                 infoLabel.frame.size = newSize
                 valueInfoView.addSubview(infoLabel)
                 lastX = infoLabel.frame.maxX
@@ -111,13 +114,13 @@ class BloodPressureListView: UIView {
             
             goalView = InnerViewWith2Value(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH * 0.53, height: goalAndRateView.frame.size.height))
             goalView.backgroundColor = UIColor(red: 0.28, green: 0.67, blue: 0.94, alpha: 1)
-            goalAndRateView.addSubview(goalView)
-            goalView.notiLabelUpdate(text: "나의 혈압 목표 수치는?", image: #imageLiteral(resourceName: "profile"))
+//            goalAndRateView.addSubview(goalView)
+//            goalView.notiLabelUpdate(text: "나의 혈압 목표 수치는?", image: #imageLiteral(resourceName: "profile"))
             
             rateView = InnerViewWith2Value(frame: CGRect(x: SCREEN.WIDTH * 0.53, y: 0, width: SCREEN.WIDTH * 0.47, height: goalView.frame.size.height))
             rateView.backgroundColor = UIColor(red: 0.28, green: 0.38, blue: 0.93, alpha: 1)
-            goalAndRateView.addSubview(rateView)
-            rateView.notiLabelUpdate(text: "목표 수치 달성율은?", image: #imageLiteral(resourceName: "stats"))
+//            goalAndRateView.addSubview(rateView)
+//            rateView.notiLabelUpdate(text: "목표 수치 달성율은?", image: #imageLiteral(resourceName: "stats"))
             
             goalAndRateView.frame.size.height = goalView.frame.size.height
             goalAndRateView.frame.origin.y = self.frame.size.height - goalAndRateView.frame.size.height
@@ -157,16 +160,59 @@ class BloodPressureListView: UIView {
             
             graphView.setXAxisStrings(xAxisStrings: xValueStrings)
             
-            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
-                toastShow(message: "reg_num is nil error")
-                return
-            }
+//            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
+//                toastShow(message: "reg_num is nil error")
+//                return
+//            }
+            
+            
+            var formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd a HH:mm"
+            var current_date_string = formatter.string(from: Date())
+            print(current_date_string)
+            
+            var formatter_year = DateFormatter()
+            formatter_year.dateFormat = "yyyy"
+            var current_year_string = formatter_year.string(from: Date())
+            print(current_year_string)
+            
+            var formatter_month = DateFormatter()
+            formatter_month.dateFormat = "MM"
+            var formatter_month_string = formatter_month.string(from: Date())
+            print(formatter_month_string)
+            
+            var formatter_day = DateFormatter()
+            formatter_day.dateFormat = "dd"
+            var formatter_day_string = formatter_day.string(from: Date())
+            print(formatter_day_string)
+            
+            var formatter_dayWeek = DateFormatter()
+            formatter_dayWeek.dateFormat = "c"
+            var formatter_dayWeek_string = formatter_dayWeek.string(from: Date())
+            print(formatter_dayWeek_string)
+            
+            var formatter_week = DateFormatter()
+            formatter_week.dateFormat = "w"
+            var formatter_week_string = formatter_week.string(from: Date())
+            print(formatter_week_string)
+            
+       
+            
+            
+            let regNumString = "SB-12500-1"
+            let sid = "\(UserDefaults.standard.object(forKey: "sid") ?? 0)"
+    
+          
+             
+            
+            
+            
             
             let today = Date()
-            let year = dateToStringWithFormat(formatString: "yyyy", date: today)
-            let month = dateToStringWithFormat(formatString: "MM", date: today)
-            let week = dateToStringWithFormat(formatString: "w", date: today)
-            let day = dateToStringWithFormat(formatString: "dd", date: today)
+            let year = current_year_string
+            let month = formatter_month_string
+            let week = formatter_week_string
+            let day = formatter_day_string
             
             let sendDataDic = [
                 "tab":"\(index)",
@@ -174,7 +220,8 @@ class BloodPressureListView: UIView {
                 "month":month,
                 "week":week,
                 "day":day,
-                "reg_num":regNumString
+//                "reg_num":regNumString
+                "user_sid":sid
                 ]
             
             Server.getData(type: Server.InfoType.BLOOD_GRAPH, otherInfo: sendDataDic) { (kData : Data?) in
@@ -191,7 +238,7 @@ class BloodPressureListView: UIView {
                             }
                             
                             
-                            
+                            print("array--->\(jsonArray)")
                             
                             for i in 0..<jsonArray.count {
                                 if let valueIndexString = jsonArray[i][standardIndexString]{
@@ -260,12 +307,12 @@ class BloodPressureListView: UIView {
             
             goalView = InnerViewWith2Value(frame: CGRect(x: 0, y: 0, width: SCREEN.WIDTH * 0.53, height: goalAndRateView.frame.size.height))
             goalView.backgroundColor = UIColor(red: 0.28, green: 0.67, blue: 0.94, alpha: 1)
-            goalAndRateView.addSubview(goalView)
+//            goalAndRateView.addSubview(goalView)
             goalView.notiLabelUpdate(text: "나의 혈압 목표 수치는?", image: #imageLiteral(resourceName: "profile"))
             
             rateView = InnerViewWith2Value(frame: CGRect(x: SCREEN.WIDTH * 0.53, y: 0, width: SCREEN.WIDTH * 0.47, height: goalView.frame.size.height))
             rateView.backgroundColor = UIColor(red: 0.28, green: 0.38, blue: 0.93, alpha: 1)
-            goalAndRateView.addSubview(rateView)
+//            goalAndRateView.addSubview(rateView)
             rateView.notiLabelUpdate(text: "목표 수치 달성율은?", image: #imageLiteral(resourceName: "stats"))
             
             goalAndRateView.frame.size.height = goalView.frame.size.height
@@ -301,18 +348,22 @@ class BloodPressureListView: UIView {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.separatorStyle = .none
+            tableView.backgroundColor = .white
             self.addSubview(tableView)
          
             self.dataUpdate()
         }
         
         func dataUpdate() {
-            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
-                toastShow(message: "reg_num is nil error")
-                return
-            }
-            
-            Server.getData(type: Server.InfoType.BLOOD_DATA_ALL, otherInfo: ["reg_num":regNumString]) { (kData : Data?) in
+//            guard let regNumString = userD.object(forKey: USER_KEY.KSR_REGISTRATION_NUMBER) as? String else {
+//                toastShow(message: "reg_num is nil error")
+//                return
+//                
+//                
+//            }
+            let regNumString = "SB-12500-1"
+            let sid = "\(UserDefaults.standard.object(forKey: "sid") ?? 0)"
+            Server.getData(type: Server.InfoType.BLOOD_DATA_ALL, otherInfo: ["user_sid":sid]) { (kData : Data?) in
                 if let data = kData {
                     do {
                         if let jsonArray = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [[String:String]] {
@@ -382,7 +433,7 @@ class BloodPressureListView: UIView {
         
         func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
             
-            let delete = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "삭제") { (action ,indexPath) in
+            let delete = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "삭제") { (action ,indexPath) in
                 let dataDic = self.dataArray[indexPath.section]
                 if let sid = dataDic["sid"] {
                     Server.getData(type: Server.InfoType.BLOOD_DEL, otherInfo: ["sid":sid], completion: { (kData : Data?) in

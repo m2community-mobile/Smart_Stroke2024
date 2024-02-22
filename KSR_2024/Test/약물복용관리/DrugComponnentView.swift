@@ -30,9 +30,13 @@ class DrugComponnentView : UIButton {
         checkButton.layer.borderColor = UIColor(white: 0.5, alpha: 1).cgColor
         checkButton.isSelected = true
         checkButton.addTarget(self, action: #selector(checkButtonPressed(button:)), for: .touchUpInside)
-        self.addTarget(event: .touchUpInside) { (button : UIButton) in
-            self.checkButtonPressed(button: self.checkButton)
-        }
+//        self.addTarget(event: .touchUpInside) { (button : UIButton) in
+//            self.checkButtonPressed(button: self.checkButton)
+//        }
+        
+        self.addTarget(self, action: #selector(checkButtonPressed(button: )), for: .touchUpInside)
+        
+        
         self.addSubview(checkButton)
         
         checkButtonImageView = UIImageView(frame: checkButton.bounds)

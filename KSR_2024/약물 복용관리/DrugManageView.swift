@@ -11,19 +11,19 @@ import RealmSwift
 
 class DrugManageView: UIScrollView {
 
-    var topView : RegisterdDrugListTopView!
+//    var topView : RegisterdDrugListTopView!
     var calendarView : CalendarView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.topView = RegisterdDrugListTopView()
-        self.addSubview(self.topView)
+//        self.topView = RegisterdDrugListTopView()
+//        self.addSubview(self.topView)
 
-        appDel.topView1 = self.topView
+//        appDel.topView1 = self.topView
         
         self.calendarView = CalendarView()
-        self.calendarView.frame.origin.y = self.topView.frame.maxY
+        self.calendarView.frame.origin.y = 0
         self.addSubview(self.calendarView)
         
         self.contentSize.width = SCREEN.WIDTH
@@ -103,9 +103,9 @@ class DrugManageView: UIScrollView {
             
             let takeDatesCountOfcurrentMonth = takeDays.count
             
-            let percent = Int((CGFloat(takeDatesCountOfcurrentMonth) / CGFloat(appDel.currentDayCountOfMonth * 3)) * 100)
-            appDel.topView1?.labelStringUpdate(valueString: "\(percent)%")
-            appDel.topView2?.labelStringUpdate(valueString: "\(percent)%")
+            let percent = Int((CGFloat(takeDatesCountOfcurrentMonth) / CGFloat(sceneDel!.currentDayCountOfMonth * 3)) * 100)
+//            appDel.topView1?.labelStringUpdate(valueString: "\(percent)%")
+//            appDel.topView2?.labelStringUpdate(valueString: "\(percent)%")
             
             
             return
@@ -278,12 +278,12 @@ class DrugManageView: UIScrollView {
                 paragraphStyle.alignment = .center
                 
                 let attribute = [
-                    NSAttributedStringKey.font : UIFont(name: ROBOTO_MEDIUM, size: 11)!,
-                    NSAttributedStringKey.foregroundColor : UIColor.white,
-                    NSAttributedStringKey.kern : -0.4, //자간?
-                    NSAttributedStringKey.paragraphStyle : paragraphStyle
-                    ] as! [NSAttributedStringKey : NSObject]
-                let stringInfos = [("Today",attribute)] as [(String,[NSAttributedStringKey:NSObject])]
+                    NSAttributedString.Key.font : UIFont(name: ROBOTO_MEDIUM, size: 11)!,
+                    NSAttributedString.Key.foregroundColor : UIColor.white,
+                    NSAttributedString.Key.kern : -0.4, //자간?
+                    NSAttributedString.Key.paragraphStyle : paragraphStyle
+                ] as! [NSAttributedString.Key : NSObject]
+                let stringInfos = [("Today",attribute)] as [(String,[NSAttributedString.Key:NSObject])]
                 todayButton.titleLabel?.attributedText = getAttributedString(stringsInfos: stringInfos)
                 
                 
@@ -307,12 +307,12 @@ class DrugManageView: UIScrollView {
             func titleLabelTextUpdate( text : String){
                 
                 let attribute = [
-                    NSAttributedStringKey.font : UIFont(name: Nanum_Barun_Gothic_OTF_Bold, size: 19)!,
-                    NSAttributedStringKey.foregroundColor : UIColor.white,
-                    NSAttributedStringKey.kern : -0.8, //자간?
-                    NSAttributedStringKey.paragraphStyle : centerParagraphStyle
-                    ] as! [NSAttributedStringKey : NSObject]
-                let stringInfos = [(text,attribute)] as [(String,[NSAttributedStringKey:NSObject])]
+                    NSAttributedString.Key.font : UIFont(name: Nanum_Barun_Gothic_OTF_Bold, size: 19)!,
+                    NSAttributedString.Key.foregroundColor : UIColor.white,
+                    NSAttributedString.Key.kern : -0.8, //자간?
+                    NSAttributedString.Key.paragraphStyle : centerParagraphStyle
+                ] as! [NSAttributedString.Key : NSObject]
+                let stringInfos = [(text,attribute)] as [(String,[NSAttributedString.Key:NSObject])]
                 self.titleLabel.attributedText = getAttributedString(stringsInfos: stringInfos)
             }
             

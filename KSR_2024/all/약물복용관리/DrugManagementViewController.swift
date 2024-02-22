@@ -40,7 +40,8 @@ class DrugManagementViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        appDel.drugManagementVC = self
+        sceneDel!
+            .drugManagementVC = self
         
         self.view.backgroundColor = UIColor.white
         
@@ -50,7 +51,7 @@ class DrugManagementViewController: UIViewController
         topBar.leftImageView.image = #imageLiteral(resourceName: "btn_b_back").withRenderingMode(.alwaysTemplate)
         topBar.leftImageView.tintColor = UIColor.white
         topBar.delegate = self
-        topBar.rightImageView.image = #imageLiteral(resourceName: "btn_menu").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        topBar.rightImageView.image = #imageLiteral(resourceName: "btn_menu").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         topBar.rightImageView.tintColor = UIColor.white
         self.view.addSubview(topBar)
         
@@ -91,7 +92,7 @@ class DrugManagementViewController: UIViewController
     
     
     func rightButtonPressed(button: UIButton) {
-        appDel.rightView?.open()
+        sceneDel!.rightView?.open()
     }
     
     //MARK:RegisterdDrugListTopViewDelegate

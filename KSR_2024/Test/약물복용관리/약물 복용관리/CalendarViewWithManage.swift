@@ -60,7 +60,8 @@ class CalendarViewWithManage: UIView
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        appDel.currentDayCountOfMonth = visibleDates.monthDates.count
+//        appDel.currentDayCountOfMonth = visibleDates.monthDates.count
+        sceneDel!.currentDayCountOfMonth = visibleDates.monthDates.count
         if let visibleDate = visibleDates.monthDates.first?.date {
             self.delegate?.scrollDidEndDeceleratingDate?(date: visibleDate)
         }

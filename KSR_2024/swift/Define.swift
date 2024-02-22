@@ -1,5 +1,8 @@
 import UIKit
-import KeychainSwift
+//import KeychainSwift
+
+
+let sceneDel = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
 
 let IS_TEST = true
 let IS_DEBUG = true
@@ -15,6 +18,43 @@ var token_id : String {
     }
 }
 
+//func saveJsonData(fileName : String, saveArray : [Any]) -> Bool{
+//
+//    if let saveJsonData = try? JSONSerialization.data(withJSONObject: saveArray, options: JSONSerialization.WritingOptions.prettyPrinted) {
+//        if let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last?.appending("/\(fileName).dat"){
+//            let fileURL = URL(fileURLWithPath: filePath)
+//            do {
+//                try saveJsonData.write(to: fileURL)
+//                return true
+//            } catch {
+//                return false
+//            }
+//        }
+//    }
+//    return false
+//}
+
+
+//func readJsonData(fileName : String) -> [Any]?{
+//    
+//    if let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last?.appending("/\(fileName).dat") {
+//        let fileURL = URL(fileURLWithPath: filePath)
+//        if let jsonData = try? Data(contentsOf: fileURL) {
+//            if let dataArray = (try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [Any] {
+//                return dataArray
+//            }
+//        }
+//    }
+//    
+//    return nil
+//}
+
+
+enum BeforeOfAfter {
+    case before
+    case after
+}
+
 var APP_NAME : String {
     get{
         if let infoDic = Bundle.main.infoDictionary,
@@ -27,33 +67,34 @@ var APP_NAME : String {
 
 
 let DEVICE_ID  = "DEVICE_ID"
-let deviceID : String = {
-    print("get deviceID================================================================")
-    
-    if let kDeviceID = userD.string(forKey: DEVICE_ID) {
-        print("userD에 DeviceID가 있으면 사용 : \(kDeviceID)")
-        return kDeviceID
-    }else if let kDeviceID = KeychainSwift().get(DEVICE_ID) {
-        print("userD에 없으면(앱이 삭제) -> 키체인에서 조회 -> 있으면 UserD에 저장후 리턴:\(kDeviceID)")
-        
-        userD.set(kDeviceID, forKey: DEVICE_ID)
-        userD.synchronize()
-        
-        return kDeviceID
-    }else{
-        print("userD,키체인 모두 없으면 -> 앱 처음시작 -> 새로 생성 후 키체인 및 userD에 저장후 리턴")
-        
-        let kDeviceID = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-        
-        KeychainSwift().set(kDeviceID, forKey: DEVICE_ID, withAccess: .accessibleAlways)
-        
-        userD.set(kDeviceID, forKey: DEVICE_ID)
-        userD.synchronize()
-        
-        print("kDeviceID:\(kDeviceID)")
-        return kDeviceID
-    }
-}()
+let deviceID : String = ""
+//{
+//    print("get deviceID================================================================")
+//
+//    if let kDeviceID = userD.string(forKey: DEVICE_ID) {
+//        print("userD에 DeviceID가 있으면 사용 : \(kDeviceID)")
+//        return kDeviceID
+//    }else if let kDeviceID = KeychainSwift().get(DEVICE_ID) {
+//        print("userD에 없으면(앱이 삭제) -> 키체인에서 조회 -> 있으면 UserD에 저장후 리턴:\(kDeviceID)")
+//
+//        userD.set(kDeviceID, forKey: DEVICE_ID)
+//        userD.synchronize()
+//
+//        return kDeviceID
+//    }else{
+//        print("userD,키체인 모두 없으면 -> 앱 처음시작 -> 새로 생성 후 키체인 및 userD에 저장후 리턴")
+//
+//        let kDeviceID = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+//
+//        KeychainSwift().set(kDeviceID, forKey: DEVICE_ID, withAccess: .accessibleAlways)
+//
+//        userD.set(kDeviceID, forKey: DEVICE_ID)
+//        userD.synchronize()
+//
+//        print("kDeviceID:\(kDeviceID)")
+//        return kDeviceID
+//    }
+//}()
 
 
 //let USER_ID = "USER_ID"
@@ -77,7 +118,7 @@ let deviceID : String = {
 //}
 
 let appDel = (UIApplication.shared.delegate as! AppDelegate)
-let userD = UserDefaults.standard
+//let userD = UserDefaults.standard
 
 struct SCREEN {
     static let BOUND = UIScreen.main.bounds
@@ -90,7 +131,8 @@ struct SCREEN {
 }
 
 var STATUS_BAR_HEIGHT : CGFloat {
-    if let value = appDel.window?.safeAreaInsets.top, value != 0 {
+//    if let value = appDel.window?.safeAreaInsets.top, value != 0 {
+        if let value = sceneDel?.window?.safeAreaInsets.top, value != 0 {
         print("read top SafeArea : window is not nil \(value)")
         return value
     }else{
@@ -164,7 +206,8 @@ let IS_IPHONE_12PRO_MAX        = (MY_IPHONE == IPHONE_12PRO_MAX)
 var SAFE_AREA : CGFloat {
     get {
 //        print("read SafeArea appDel.window : \(appDel.window)")
-        return appDel.window?.safeAreaInsets.bottom ?? 0
+//        return appDel.window?.safeAreaInsets.bottom ?? 0
+        return sceneDel?.window?.safeAreaInsets.bottom ?? 0
     }
 //        IS_NORCH ? 44 : 0
 }
@@ -299,3 +342,11 @@ let NotoSansCJKkr_Regular              = "NotoSansCJKkr-Regular"
 let NotoSansCJKkr_Light                = "NotoSansCJKkr-Light"
 let NotoSansCJKkr_DemiLight            = "NotoSansCJKkr-DemiLight"
 let NotoSansCJKkr_Medium               = "NotoSansCJKkr-Medium"
+
+let centerParagraphStyle = { () -> NSMutableParagraphStyle in
+    let style = NSMutableParagraphStyle()
+    style.alignment = .center
+    return style
+}()
+
+

@@ -14,7 +14,7 @@ class Compnent4TableViewCell: UITableViewCell {
     
     static let cellHeight : CGFloat = 130
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
         let leftMargin : CGFloat = 15
@@ -49,7 +49,7 @@ class Compnent5TableViewCell: UITableViewCell {
     
     static let cellHeight : CGFloat = 130
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor.white
@@ -84,7 +84,7 @@ class Compnent3TableViewCell: UITableViewCell {
     
     static let cellHeight : CGFloat = 70
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor.white
@@ -120,7 +120,7 @@ class Compnent2TableViewCell: UITableViewCell {
     
     static let cellHeight : CGFloat = 70
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.backgroundColor = UIColor.white

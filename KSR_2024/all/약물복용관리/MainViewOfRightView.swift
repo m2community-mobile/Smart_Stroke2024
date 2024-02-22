@@ -271,7 +271,7 @@ class MainViewTableCell: UITableViewCell {
     
     var label : UILabel!
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.backgroundColor = UIColor(white: 0.95, alpha: 1)

@@ -116,14 +116,14 @@ class InnerViewWith3SubTitle: UIView {
         }
         
         let rateStringInfos = [
-            (valueString,[NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: IS_IPHONE_SE ? 15 : 25),
-                    NSAttributedStringKey.foregroundColor : UIColor.white,
-                    NSAttributedStringKey.paragraphStyle : centerParagraphStyle]),
-            (unitString,[NSAttributedStringKey.font : UIFont.systemFont(ofSize: IS_IPHONE_SE ? 12 : 15),
-                             NSAttributedStringKey.foregroundColor : UIColor.white,
-                             NSAttributedStringKey.paragraphStyle : centerParagraphStyle])
+            (valueString,[NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: IS_IPHONE_SE ? 15 : 25),
+                          NSAttributedString.Key.foregroundColor : UIColor.white,
+                          NSAttributedString.Key.paragraphStyle : centerParagraphStyle]),
+            (unitString,[NSAttributedString.Key.font : UIFont.systemFont(ofSize: IS_IPHONE_SE ? 12 : 15),
+                         NSAttributedString.Key.foregroundColor : UIColor.white,
+                         NSAttributedString.Key.paragraphStyle : centerParagraphStyle])
             ]
-            as [(String,[NSAttributedStringKey:NSObject])]
+        as [(String,[NSAttributedString.Key:NSObject])]
         self.valueLabels[labelIndex].attributedText = getAttributedString(stringsInfos: rateStringInfos)
     }
     

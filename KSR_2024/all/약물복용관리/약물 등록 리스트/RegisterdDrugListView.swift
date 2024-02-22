@@ -26,7 +26,7 @@ class RegisterdDrugListView: UIView
         self.topView.delegate = self
         self.addSubview(self.topView)
         
-        appDel.topView2 = self.topView
+                        sceneDel!.topView2 = self.topView
 
         drugRegisterTableView = UITableView(frame: CGRect(x: 0, y: self.topView.frame.maxY, width: SCREEN.WIDTH, height: self.frame.size.height - self.topView.frame.maxY))
         drugRegisterTableView.delegate = self

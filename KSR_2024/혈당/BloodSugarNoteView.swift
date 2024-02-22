@@ -175,7 +175,7 @@ class BloodSugarNoteView: UIScrollView
                 if let dataString : String = String(data: data, encoding: String.Encoding.utf8) {
                     print("dataString:\(dataString)")
                     self.endEditing(true)
-                    self.superCon?.segView.itemButtonPressed(button: (self.superCon?.segView.itemButtons[2])!)
+//                    self.superCon?.segView.itemButtonPressed(button: (self.superCon?.segView.itemButtons[2])!)
                 }
             }
         }
@@ -224,6 +224,7 @@ class BloodSugarNoteView: UIScrollView
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         //핵심
+
         let textFieldMaxY = appDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
         let keyBoardHeight : CGFloat = (IS_IPHONE_X ? 377 : 216) + 44
         let targetHeight = (SCREEN.HEIGHT - textFieldMaxY) - keyBoardHeight - 10

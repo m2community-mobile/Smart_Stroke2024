@@ -20,7 +20,8 @@ class DrugManageView: UIScrollView {
         self.topView = RegisterdDrugListTopView()
         self.addSubview(self.topView)
 
-        appDel.topView1 = self.topView
+//        appDel.topView1 = self.topView
+        sceneDel!.topView1 = self.topView
         
         self.calendarView = CalendarView()
         self.calendarView.frame.origin.y = self.topView.frame.maxY
@@ -103,9 +104,13 @@ class DrugManageView: UIScrollView {
             
             let takeDatesCountOfcurrentMonth = takeDays.count
             
-            let percent = Int((CGFloat(takeDatesCountOfcurrentMonth) / CGFloat(appDel.currentDayCountOfMonth * 3)) * 100)
-            appDel.topView1?.labelStringUpdate(valueString: "\(percent)%")
-            appDel.topView2?.labelStringUpdate(valueString: "\(percent)%")
+            let percent = Int((CGFloat(takeDatesCountOfcurrentMonth) / CGFloat(sceneDel!.currentDayCountOfMonth * 3)) * 100)
+//            appDel.topView1?.labelStringUpdate(valueString: "\(percent)%")
+//            appDel.topView2?.labelStringUpdate(valueString: "\(percent)%")
+            
+            sceneDel!.topView1?.labelStringUpdate(valueString: "\(percent)%")
+            sceneDel!.topView2?.labelStringUpdate(valueString: "\(percent)%")
+            
             
             
             return

@@ -100,14 +100,16 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
             userD.removeObject(forKey: USER_KEY.KSR_REGISTRATION_NUMBER)
             userD.synchronize()
             DispatchQueue.main.async {
-                appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+//                appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+                sceneDel?.mainVC?.navigationController?.popToRootViewController(animated: false)
                 self.close()
             }
         }))
         alertCon.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { (action) in
             
         }))
-        appDel.mainVC?.navigationController?.present(alertCon, animated: true, completion: {
+//        appDel.mainVC?.navigationController?.present(alertCon, animated: true, completion: {
+        sceneDel!.mainVC?.navigationController?.present(alertCon, animated: true, completion: {
             
         })
         
@@ -131,8 +133,10 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
             knowVC.titleString = "공지사항"
 //            knowVC.urlString = "http://ksrapp.m2comm.co.kr/bbs/list.php"
             knowVC.urlString = "http://www.strokedb.or.kr/app/bbs/list.asp"
-            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
-            appDel.mainVC?.navigationController?.pushViewController(knowVC, animated: false)
+//            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+//            appDel.mainVC?.navigationController?.pushViewController(knowVC, animated: false)
+            sceneDel!.mainVC?.navigationController?.popToRootViewController(animated: false)
+            sceneDel!.mainVC?.navigationController?.pushViewController(knowVC, animated: false)
             self.close()
         }
         
@@ -150,8 +154,10 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
     func tableView(tableView: MainViewOfRightView, didCellSelectedIndexPath indexPath: IndexPath) {
         //?/
         print("rightView didCellSelectedIndexPath:\(indexPath)")
-        appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
-        appDel.goToKnowViewCon2(indexPath: indexPath, isAnimate: false)
+//        appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+//        appDel.goToKnowViewCon2(indexPath: indexPath, isAnimate: false)
+        sceneDel!.mainVC?.navigationController?.popToRootViewController(animated: false)
+        sceneDel!.goToKnowViewCon2(indexPath: indexPath, isAnimate: false)
         self.close()
     }
     
@@ -159,11 +165,15 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
         print("rightView didHeaderSelectedIndex:\(index)")
 
         if seletedLeftButtonIndex == 0 {
-            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
-            appDel.goToKnowViewCon(index: index, isAnimate: false)
+//            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+//            appDel.goToKnowViewCon(index: index, isAnimate: false)
+            sceneDel!.mainVC?.navigationController?.popToRootViewController(animated: false)
+            sceneDel!.goToKnowViewCon(index: index, isAnimate: false)
             self.close()
         }else{
-            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+//            appDel.mainVC?.navigationController?.popToRootViewController(animated: false)
+            sceneDel!.mainVC?.navigationController?.popToRootViewController(animated: false)
+            
 
             switch index {
             case 0:
@@ -199,7 +209,9 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
     }
     
     func leftButtonPressed(button: UIButton) {
-        appDel.goHome()
+//        appDel.goHome()
+        sceneDel!.goHome()
+        
         self.close()
     }
     
@@ -232,7 +244,8 @@ class RightView: UIView, TopBarDelegate,  MainViewOfRightViewDelegate {
     
     func open( isManage : Bool = true) {
         
-        appDel.mainVC?.navigationController?.viewControllers.last?.view.endEditing(true)
+//        appDel.mainVC?.navigationController?.viewControllers.last?.view.endEditing(true)
+        sceneDel!.mainVC?.navigationController?.viewControllers.last?.view.endEditing(true)
         
         if isManage {
             self.leftViewButtonPressed(button: self.leftButtons[1])

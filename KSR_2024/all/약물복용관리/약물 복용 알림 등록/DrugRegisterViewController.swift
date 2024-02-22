@@ -1099,12 +1099,12 @@ class DrugSelectView: UIView, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("textFieldDidBeginEditing")
         //핵심
-        let textFieldMaxY = appDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
+        let textFieldMaxY = sceneDel.mainVC!.view.convert(textField.frame, from: textField.superview!).maxY
         let keyBoardHeight : CGFloat = (IS_IPHONE_X ? 377 : 216) + 44
         let targetHeight = (SCREEN.HEIGHT - textFieldMaxY) - keyBoardHeight - 10
         if targetHeight < 0 {
             UIView.animate(withDuration: 0.3, animations: {
-                appDel.window?.frame.origin.y = targetHeight
+                sceneDel.window?.frame.origin.y = targetHeight
             }) { (fi:Bool) in
                 
             }
@@ -1113,7 +1113,7 @@ class DrugSelectView: UIView, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.3, animations: {
-            appDel.window?.frame.origin.y = 0
+            sceneDel.window?.frame.origin.y = 0
         }) { (fi:Bool) in
             
         }

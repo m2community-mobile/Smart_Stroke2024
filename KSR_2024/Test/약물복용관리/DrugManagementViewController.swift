@@ -40,7 +40,8 @@ class DrugManagementViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        appDel.drugManagementVC = self
+//        appDel.drugManagementVC = self
+        sceneDel!.drugManagementVC = self
         
         self.view.backgroundColor = UIColor.white
         
@@ -91,7 +92,8 @@ class DrugManagementViewController: UIViewController
     
     
     func rightButtonPressed(button: UIButton) {
-        appDel.rightView?.open()
+//        appDel.rightView?.open()
+        sceneDel!.rightView?.open()
     }
     
     //MARK:RegisterdDrugListTopViewDelegate

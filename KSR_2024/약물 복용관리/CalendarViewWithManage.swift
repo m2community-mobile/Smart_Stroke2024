@@ -28,10 +28,10 @@ class CalendarViewWithManage: UIView
     var checkDates = [String]()
     
     var dataArray = [TakingDrug]()
-    
+//
     var dataArray2 = [DayComponentOfDrug_R]()
-    
-    var firstAlramDB : AlramDB?
+//
+//    var firstAlramDB : AlramDB?
     
     func updateFirstAlramDB(){
 //        firstAlramDB = AlramCenter.shared.readFirstAlramDB()
@@ -46,7 +46,7 @@ class CalendarViewWithManage: UIView
         self.calendarView.calendarDelegate = self
         self.calendarView.calendarDataSource = self
         self.calendarView.scrollingMode = .stopAtEachCalendarFrame
-        self.calendarView.scrollDirection = UICollectionViewScrollDirection.horizontal
+        self.calendarView.scrollDirection = UICollectionView.ScrollDirection.horizontal
         self.calendarView.register(CalendarCell.self, forCellWithReuseIdentifier: "CalendarCell")
         self.calendarView.showsHorizontalScrollIndicator = false
         self.calendarView.showsVerticalScrollIndicator = false
@@ -60,7 +60,7 @@ class CalendarViewWithManage: UIView
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        appDel.currentDayCountOfMonth = visibleDates.monthDates.count
+        sceneDel!.currentDayCountOfMonth = visibleDates.monthDates.count
         if let visibleDate = visibleDates.monthDates.first?.date {
             self.delegate?.scrollDidEndDeceleratingDate?(date: visibleDate)
         }

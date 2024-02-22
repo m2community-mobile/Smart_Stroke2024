@@ -10,5 +10,5 @@ import Foundation
 
 
 @objc protocol DrugTimeViewDelegate {
-    @objc optional func checkButtonPressed(drugTimeView : DrugTimeView)
+//    @objc optional func checkButtonPressed(drugTimeView : DrugTimeView)
 }

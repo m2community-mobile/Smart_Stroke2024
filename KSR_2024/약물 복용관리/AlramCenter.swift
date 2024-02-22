@@ -77,7 +77,7 @@ class AlramCenter: NSObject,UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         content.title = "약 복용시간입니다."
         content.body = drugNames.joined(separator: ",")
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         var alramDate = Date()
         alramDate = Calendar.current.date(bySettingHour: info.hour, minute: info.minute, second: 0, of: alramDate)!

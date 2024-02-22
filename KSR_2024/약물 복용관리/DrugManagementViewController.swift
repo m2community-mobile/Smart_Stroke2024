@@ -9,18 +9,18 @@
 import UIKit
 
 class DrugManagementViewController: UIViewController
-,TopBarDelegate, SegmentedViewDelegate, RegisterdDrugListTopViewDelegate
+//,TopBarDelegate, SegmentedViewDelegate, RegisterdDrugListTopViewDelegate
 {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    var topBar : TopBar!
+//    var topBar : TopBar!
     
     var drugInfoView : WebView!
     var drugManageView : DrugManageView!
-    var registerdDrugListView : RegisterdDrugListView!
+//    var registerdDrugListView : RegisterdDrugListView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
