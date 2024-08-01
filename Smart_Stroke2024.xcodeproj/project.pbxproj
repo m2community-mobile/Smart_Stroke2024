@@ -149,10 +149,12 @@
 		58FFD97B2B5E606A0075B4AD /* DataFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFD9762B5E60680075B4AD /* DataFunction.swift */; };
 		58FFD97C2B5E606A0075B4AD /* NormalFuntion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFD9772B5E60690075B4AD /* NormalFuntion.swift */; };
 		58FFD97D2B5E606A0075B4AD /* DateCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFD9782B5E606A0075B4AD /* DateCenter.swift */; };
-		ECF250DF7804F2E7F3E96B85 /* Pods_KSR_2024.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78322AC1F5BBC33E5E7B5873 /* Pods_KSR_2024.framework */; };
+		F8836D9E0BDF44C0C95FD9F2 /* Pods_Smart_Stroke2024.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B44311EA586408D1A10BE3 /* Pods_Smart_Stroke2024.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B755D14ABD427291FBFFF5E /* Pods-Smart_Stroke2024.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart_Stroke2024.release.xcconfig"; path = "Target Support Files/Pods-Smart_Stroke2024/Pods-Smart_Stroke2024.release.xcconfig"; sourceTree = "<group>"; };
+		10B44311EA586408D1A10BE3 /* Pods_Smart_Stroke2024.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Stroke2024.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		580A5F842C0841C1000B06FD /* ChangeDataBloodPressureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataBloodPressureViewController.swift; sourceTree = "<group>"; };
 		5818D7232B7634FB001B9994 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		581954C02B4791A800CC0685 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		5886BFD12B57AE16006662C0 /* BloodSugarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarViewController.swift; sourceTree = "<group>"; };
 		5892490F2BFB66DA00899151 /* Sqlite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sqlite.swift; sourceTree = "<group>"; };
 		589249112BFB695000899151 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		5892AA642B43F04B00F0217E /* KSR_2024.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSR_2024.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5892AA642B43F04B00F0217E /* Smart_Stroke2024.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smart_Stroke2024.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5892AA672B43F04B00F0217E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5892AA692B43F04B00F0217E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5892AA6B2B43F04B00F0217E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,7 +223,7 @@
 		5893C2F12B679DEC0094AED2 /* ObesityViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObesityViewController1.swift; sourceTree = "<group>"; };
 		5893C2F32B679DF70094AED2 /* ObesityNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObesityNoteView.swift; sourceTree = "<group>"; };
 		5893C2F52B679E010094AED2 /* ObesityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObesityListView.swift; sourceTree = "<group>"; };
-		589AED082BFDD63A00B93D6C /* KSR_2024.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KSR_2024.entitlements; sourceTree = "<group>"; };
+		589AED082BFDD63A00B93D6C /* Smart_Stroke2024.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smart_Stroke2024.entitlements; sourceTree = "<group>"; };
 		589AED092BFDE59400B93D6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58A831B62B59FE160072800E /* BloodPressureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPressureViewController.swift; sourceTree = "<group>"; };
 		58A831B82B59FEF10072800E /* BloodPressureManagementNotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodPressureManagementNotebookView.swift; sourceTree = "<group>"; };
@@ -301,7 +303,7 @@
 		58FFD9772B5E60690075B4AD /* NormalFuntion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalFuntion.swift; sourceTree = "<group>"; };
 		58FFD9782B5E606A0075B4AD /* DateCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCenter.swift; sourceTree = "<group>"; };
 		5DE1F5FF13B75DCE626BD71F /* Pods-KSR_2024.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSR_2024.debug.xcconfig"; path = "Target Support Files/Pods-KSR_2024/Pods-KSR_2024.debug.xcconfig"; sourceTree = "<group>"; };
-		78322AC1F5BBC33E5E7B5873 /* Pods_KSR_2024.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KSR_2024.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B570DB003A075C7B47B69A48 /* Pods-Smart_Stroke2024.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart_Stroke2024.debug.xcconfig"; path = "Target Support Files/Pods-Smart_Stroke2024/Pods-Smart_Stroke2024.debug.xcconfig"; sourceTree = "<group>"; };
 		B94424C619C5BCEC14964A4A /* Pods-KSR_2024.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KSR_2024.release.xcconfig"; path = "Target Support Files/Pods-KSR_2024/Pods-KSR_2024.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,7 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				589249122BFB695000899151 /* libsqlite3.tbd in Frameworks */,
-				ECF250DF7804F2E7F3E96B85 /* Pods_KSR_2024.framework in Frameworks */,
+				F8836D9E0BDF44C0C95FD9F2 /* Pods_Smart_Stroke2024.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +392,7 @@
 		5892AA5B2B43F04B00F0217E = {
 			isa = PBXGroup;
 			children = (
-				5892AA662B43F04B00F0217E /* KSR_2024 */,
+				5892AA662B43F04B00F0217E /* Smart_Stroke2024 */,
 				5892AA652B43F04B00F0217E /* Products */,
 				C5DCEE58E4AB0E747140953F /* Pods */,
 				9C22DB7BDE0B7BBF17F78165 /* Frameworks */,
@@ -400,16 +402,16 @@
 		5892AA652B43F04B00F0217E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5892AA642B43F04B00F0217E /* KSR_2024.app */,
+				5892AA642B43F04B00F0217E /* Smart_Stroke2024.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5892AA662B43F04B00F0217E /* KSR_2024 */ = {
+		5892AA662B43F04B00F0217E /* Smart_Stroke2024 */ = {
 			isa = PBXGroup;
 			children = (
 				589AED092BFDE59400B93D6C /* GoogleService-Info.plist */,
-				589AED082BFDD63A00B93D6C /* KSR_2024.entitlements */,
+				589AED082BFDD63A00B93D6C /* Smart_Stroke2024.entitlements */,
 				5892AA672B43F04B00F0217E /* AppDelegate.swift */,
 				5892AA692B43F04B00F0217E /* SceneDelegate.swift */,
 				5892AA6B2B43F04B00F0217E /* ViewController.swift */,
@@ -450,7 +452,7 @@
 				5892AA722B43F04C00F0217E /* LaunchScreen.storyboard */,
 				5892AA752B43F04C00F0217E /* Info.plist */,
 			);
-			path = KSR_2024;
+			path = Smart_Stroke2024;
 			sourceTree = "<group>";
 		};
 		5892AA7F2B43F1F100F0217E /* swift */ = {
@@ -673,7 +675,7 @@
 			isa = PBXGroup;
 			children = (
 				589249112BFB695000899151 /* libsqlite3.tbd */,
-				78322AC1F5BBC33E5E7B5873 /* Pods_KSR_2024.framework */,
+				10B44311EA586408D1A10BE3 /* Pods_Smart_Stroke2024.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -683,6 +685,8 @@
 			children = (
 				5DE1F5FF13B75DCE626BD71F /* Pods-KSR_2024.debug.xcconfig */,
 				B94424C619C5BCEC14964A4A /* Pods-KSR_2024.release.xcconfig */,
+				B570DB003A075C7B47B69A48 /* Pods-Smart_Stroke2024.debug.xcconfig */,
+				0B755D14ABD427291FBFFF5E /* Pods-Smart_Stroke2024.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -690,9 +694,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5892AA632B43F04B00F0217E /* KSR_2024 */ = {
+		5892AA632B43F04B00F0217E /* Smart_Stroke2024 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5892AA782B43F04C00F0217E /* Build configuration list for PBXNativeTarget "KSR_2024" */;
+			buildConfigurationList = 5892AA782B43F04C00F0217E /* Build configuration list for PBXNativeTarget "Smart_Stroke2024" */;
 			buildPhases = (
 				3B22E6102A45AE62F3E9B42C /* [CP] Check Pods Manifest.lock */,
 				5892AA602B43F04B00F0217E /* Sources */,
@@ -704,9 +708,9 @@
 			);
 			dependencies = (
 			);
-			name = KSR_2024;
+			name = Smart_Stroke2024;
 			productName = KSR_2024;
-			productReference = 5892AA642B43F04B00F0217E /* KSR_2024.app */;
+			productReference = 5892AA642B43F04B00F0217E /* Smart_Stroke2024.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -724,7 +728,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5892AA5F2B43F04B00F0217E /* Build configuration list for PBXProject "KSR_2024" */;
+			buildConfigurationList = 5892AA5F2B43F04B00F0217E /* Build configuration list for PBXProject "Smart_Stroke2024" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -737,7 +741,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5892AA632B43F04B00F0217E /* KSR_2024 */,
+				5892AA632B43F04B00F0217E /* Smart_Stroke2024 */,
 			);
 		};
 /* End PBXProject section */
@@ -779,7 +783,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KSR_2024-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Smart_Stroke2024-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -792,15 +796,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KSR_2024/Pods-KSR_2024-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Smart_Stroke2024/Pods-Smart_Stroke2024-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KSR_2024/Pods-KSR_2024-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Smart_Stroke2024/Pods-Smart_Stroke2024-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KSR_2024/Pods-KSR_2024-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smart_Stroke2024/Pods-Smart_Stroke2024-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1085,16 +1089,16 @@
 		};
 		5892AA792B43F04C00F0217E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DE1F5FF13B75DCE626BD71F /* Pods-KSR_2024.debug.xcconfig */;
+			baseConfigurationReference = B570DB003A075C7B47B69A48 /* Pods-Smart_Stroke2024.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = KSR_2024/KSR_2024.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 85JQMF8YT8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KSR_2024/Info.plist;
+				INFOPLIST_FILE = Smart_Stroke2024/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Smart Stroke";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1119,16 +1123,16 @@
 		};
 		5892AA7A2B43F04C00F0217E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B94424C619C5BCEC14964A4A /* Pods-KSR_2024.release.xcconfig */;
+			baseConfigurationReference = 0B755D14ABD427291FBFFF5E /* Pods-Smart_Stroke2024.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = KSR_2024/KSR_2024.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 85JQMF8YT8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KSR_2024/Info.plist;
+				INFOPLIST_FILE = Smart_Stroke2024/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Smart Stroke";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1154,7 +1158,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5892AA5F2B43F04B00F0217E /* Build configuration list for PBXProject "KSR_2024" */ = {
+		5892AA5F2B43F04B00F0217E /* Build configuration list for PBXProject "Smart_Stroke2024" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5892AA762B43F04C00F0217E /* Debug */,
@@ -1163,7 +1167,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5892AA782B43F04C00F0217E /* Build configuration list for PBXNativeTarget "KSR_2024" */ = {
+		5892AA782B43F04C00F0217E /* Build configuration list for PBXNativeTarget "Smart_Stroke2024" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5892AA792B43F04C00F0217E /* Debug */,

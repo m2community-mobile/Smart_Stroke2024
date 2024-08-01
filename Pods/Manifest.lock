@@ -1,4 +1,5 @@
 PODS:
+  - ABGaugeViewKit (1.0.1)
   - Alamofire (5.8.1)
   - Firebase/Analytics (10.21.0):
     - Firebase/Core
@@ -120,18 +121,19 @@ PODS:
   - nanopb/decode (2.30909.1)
   - nanopb/encode (2.30909.1)
   - PagingKit (1.18.2)
-  - PromisesObjC (2.3.1)
-  - PromisesSwift (2.3.1):
-    - PromisesObjC (= 2.3.1)
-  - Realm (10.46.0):
-    - Realm/Headers (= 10.46.0)
-  - Realm/Headers (10.46.0)
-  - RealmSwift (10.46.0):
-    - Realm (= 10.46.0)
-  - SnapKit (5.6.0)
+  - PromisesObjC (2.4.0)
+  - PromisesSwift (2.4.0):
+    - PromisesObjC (= 2.4.0)
+  - Realm (10.47.0):
+    - Realm/Headers (= 10.47.0)
+  - Realm/Headers (10.47.0)
+  - RealmSwift (10.47.0):
+    - Realm (= 10.47.0)
+  - SnapKit (5.7.1)
   - Then (3.0.0)
 
 DEPENDENCIES:
+  - ABGaugeViewKit
   - Alamofire
   - Firebase/Analytics
   - Firebase/Core
@@ -146,6 +148,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ABGaugeViewKit
     - Alamofire
     - Firebase
     - FirebaseAnalytics
@@ -171,6 +174,7 @@ SPEC REPOS:
     - Then
 
 SPEC CHECKSUMS:
+  ABGaugeViewKit: b69c855c2878e5ba49605b0662d409c1577ed198
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   Firebase: 4453b799f72f625384dc23f412d3be92b0e3b2a0
   FirebaseAnalytics: d275f288881d4417f780115dd52c05fa9752d530
@@ -188,13 +192,13 @@ SPEC CHECKSUMS:
   JTAppleCalendar: b7fb40852f5f319fe55c8ec3861f1de0edc99cc8
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PagingKit: 57cee81dc88bda4652a1e4a09992b9860ae8a4d7
-  PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  PromisesSwift: 28dca69a9c40779916ac2d6985a0192a5cb4a265
-  Realm: 699b80d8e5fc66acafd2d530199e77781a2d69d3
-  RealmSwift: 3230b8fc63759433a6938a0dd2a5dc0dc2b15760
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  Realm: e43fb540ae947497e3ea8a662443256920602060
+  RealmSwift: 8b06ed06b5d16749ae0c4d91c0cba414a9e28189
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 961923936b63ee8b5da3199f92dded89cd661d60
+PODFILE CHECKSUM: 5e096d1a229b509cd5d24b13158c7342e1bc597b
 
 COCOAPODS: 1.15.2

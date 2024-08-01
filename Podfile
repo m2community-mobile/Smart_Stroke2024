@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'KSR_2024' do
+target 'Smart_Stroke2024' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for KSR_2024
+  # Pods for Smart_Stroke2024
 pod 'Then'
 pod 'SnapKit'
 pod 'FontAwesome.swift'
@@ -14,7 +14,7 @@ pod "PagingKit"
 
 pod 'JTAppleCalendar', '~> 7.0'
 pod 'RealmSwift'
-
+pod 'ABGaugeViewKit'
  pod 'Alamofire'
 
 
