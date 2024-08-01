@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "sun1f.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sun1f@2x.png",
+      "filename" : "ic_no_morning.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "sun1f@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

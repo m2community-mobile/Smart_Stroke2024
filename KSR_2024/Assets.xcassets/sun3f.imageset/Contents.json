@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "sun3f.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "sun3f@2x.png",
+      "filename" : "Image_2024-05-08 15_31_13.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "sun3f@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
